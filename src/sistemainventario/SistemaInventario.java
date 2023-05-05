@@ -98,6 +98,7 @@ public class SistemaInventario {
                     int confirmacion = JOptionPane.showConfirmDialog(null, "¿Esta seguro de realizar esta compra?");
                     if (confirmacion == 0) {
                         compras.add(inventario.get(producto));
+                      
                     }
                 }
                 
