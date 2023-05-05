@@ -16,6 +16,7 @@ public class SistemaInventario {
 
     public static void main(String[] args) {
         ArrayList inventario = new ArrayList();
+        ArrayList compras = new ArrayList();
 
         int opcion = 0;
         while (opcion != 8) {
@@ -29,6 +30,7 @@ public class SistemaInventario {
                     + "7. Registro Compras\n"
                     + "8. Salir"));
 
+            //Agregar Comida
             if (opcion == 1) {
 
                 Comida C = new Comida(JOptionPane.showInputDialog(" Ingrese el Nombre de la Comida: \n"),
@@ -36,6 +38,7 @@ public class SistemaInventario {
                         JOptionPane.showInputDialog("Estado de la Comida: \n" + "\n(Vencido / No Vencido)"));
                 inventario.add(C);
             }
+            //Agregar Bebida
             if (opcion == 2) {
 
                 Bebidas B = new Bebidas(JOptionPane.showInputDialog("Ingrese el Nombre de la Bebida: \n"),
@@ -43,6 +46,7 @@ public class SistemaInventario {
                         Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Tamaño de la Bebida: \n")));
                 inventario.add(B);
             }
+            //Modificar
             if (opcion == 3) {
                 for (int i = 0; i < inventario.size(); i++) {
                     JOptionPane.showMessageDialog(null, "" + inventario.indexOf(inventario.get(i)) + "-" + inventario.get(i));
@@ -54,15 +58,16 @@ public class SistemaInventario {
                         ((Comida) inventario.get(posicion)).setPrecioComida(Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Precio de la Comida: \n")));
                         ((Comida) inventario.get(posicion)).setEstadoVencimiento(JOptionPane.showInputDialog("Estado de la Comida: \n" + "\n(Vencido / No Vencido)"));
                     }
-                    if (inventario.get(posicion) instanceof Bebidas){
+                    if (inventario.get(posicion) instanceof Bebidas) {
                         ((Bebidas) inventario.get(posicion)).setNombreBebidas(JOptionPane.showInputDialog("Ingrese el Nombre de la Bebida: \n"));
-                        ((Bebidas) inventario.get(posicion)).setPrecioBebidas( Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Precio de la Bebida: \n")));
+                        ((Bebidas) inventario.get(posicion)).setPrecioBebidas(Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Precio de la Bebida: \n")));
                         ((Bebidas) inventario.get(posicion)).setTamaño(Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Tamaño de la Bebida: \n")));
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "No existe ningun producto en la posicion ingresada!!!");
                 }
             }
+            //Eliminar
             if (opcion == 4) {
                 for (int i = 0; i < inventario.size(); i++) {
                     JOptionPane.showMessageDialog(null, " " + inventario.indexOf(inventario.get(i)) + "-" + inventario.get(i));
@@ -77,9 +82,16 @@ public class SistemaInventario {
                     JOptionPane.showMessageDialog(null, "No existe ningun producto en la posicion ingresada!!!");
                 }
             }
+            //Mostrar Productos
             if (opcion == 5) {
                 for (int i = 0; i < inventario.size(); i++) {
                     JOptionPane.showMessageDialog(null, " " + inventario.indexOf(inventario.get(i)) + "-" + inventario.get(i));
+                }
+            }
+            //Registro de compras
+            if (opcion == 7) {
+                for (int i = 0; i < compras.size(); i++) {
+                    JOptionPane.showMessageDialog(null, " " + compras.indexOf(compras.get(i)) + "-" + compras.get(i));
                 }
             }
         }
