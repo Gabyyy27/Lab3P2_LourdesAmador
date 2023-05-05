@@ -49,7 +49,7 @@ public class SistemaInventario {
             //Modificar
             if (opcion == 3) {
                 for (int i = 0; i < inventario.size(); i++) {
-                    JOptionPane.showMessageDialog(null, "" + inventario.indexOf(inventario.get(i)) + "-" + inventario.get(i));
+                    JOptionPane.showMessageDialog(null, " " + inventario.indexOf(inventario.get(i)) + "-" + inventario.get(i));
                 }
                 int posicion = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la posicion a modificar: "));
                 if (posicion >= 0 && posicion < inventario.size()) {
@@ -87,6 +87,10 @@ public class SistemaInventario {
                 for (int i = 0; i < inventario.size(); i++) {
                     JOptionPane.showMessageDialog(null, " " + inventario.indexOf(inventario.get(i)) + "-" + inventario.get(i));
                 }
+            }
+            //Generar Compra
+            if (opcion == 6) {
+                
             }
             //Registro de compras
             if (opcion == 7) {
