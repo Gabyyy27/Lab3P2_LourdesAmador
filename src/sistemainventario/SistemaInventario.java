@@ -38,14 +38,34 @@ public class SistemaInventario {
             }
             if (opcion == 2) {
 
-                Bebidas B = new Bebidas(JOptionPane.showInputDialog(" Ingrese el Nombre de la Bebida: \n"),
+                Bebidas B = new Bebidas(JOptionPane.showInputDialog("Ingrese el Nombre de la Bebida: \n"),
                         Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Precio de la Bebida: \n")),
                         Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Tamaño de la Bebida: \n")));
                 inventario.add(B);
             }
+            if (opcion == 3) {
+                for (int i = 0; i < inventario.size(); i++) {
+                    JOptionPane.showMessageDialog(null, "" + inventario.indexOf(inventario.get(i)) + "-" + inventario.get(i));
+                }
+                int posicion = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la posicion a modificar: "));
+                if (posicion >= 0 && posicion < inventario.size()) {
+                    if (inventario.get(posicion) instanceof Comida) {
+                        ((Comida) inventario.get(posicion)).setNombreComida(JOptionPane.showInputDialog(" Ingrese el Nombre de la Comida: \n"));
+                        ((Comida) inventario.get(posicion)).setPrecioComida(Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Precio de la Comida: \n")));
+                        ((Comida) inventario.get(posicion)).setEstadoVencimiento(JOptionPane.showInputDialog("Estado de la Comida: \n" + "\n(Vencido / No Vencido)"));
+                    }
+                    if (inventario.get(posicion) instanceof Bebidas){
+                        ((Bebidas) inventario.get(posicion)).setNombreBebidas(JOptionPane.showInputDialog("Ingrese el Nombre de la Bebida: \n"));
+                        ((Bebidas) inventario.get(posicion)).setPrecioBebidas( Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Precio de la Bebida: \n")));
+                        ((Bebidas) inventario.get(posicion)).setTamaño(Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Tamaño de la Bebida: \n")));
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "No existe ningun producto en la posicion ingresada!!!");
+                }
+            }
             if (opcion == 4) {
                 for (int i = 0; i < inventario.size(); i++) {
-                    JOptionPane.showInputDialog("" + inventario.indexOf(inventario.get(i)) + "-" + inventario.get(i));
+                    JOptionPane.showMessageDialog(null, " " + inventario.indexOf(inventario.get(i)) + "-" + inventario.get(i));
                 }
                 int pos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la posicion a eliminar"));
                 if (pos >= 0 && pos < inventario.size()) {
@@ -54,10 +74,14 @@ public class SistemaInventario {
                         inventario.remove(pos);
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "No existe ningun producto en inventario!!!");
+                    JOptionPane.showMessageDialog(null, "No existe ningun producto en la posicion ingresada!!!");
                 }
             }
-
+            if (opcion == 5) {
+                for (int i = 0; i < inventario.size(); i++) {
+                    JOptionPane.showMessageDialog(null, " " + inventario.indexOf(inventario.get(i)) + "-" + inventario.get(i));
+                }
+            }
         }
     }
 }
