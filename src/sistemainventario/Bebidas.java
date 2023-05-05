@@ -47,7 +47,8 @@ public class Bebidas {
 
     @Override
     public String toString() {
-        return "Bebidas: " + "NombreBebidas=" + NombreBebidas + ", PrecioBebidas=" + PrecioBebidas + ", Tama\u00f1o=" + Tamaño + '}';
+        return "\n Bebidas: " + "\n Nombre= " + NombreBebidas +
+                "\n Precio= " + PrecioBebidas + "\n Tamaño= " + Tamaño + "ML";
     }
     
     
