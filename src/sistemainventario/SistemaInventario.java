@@ -30,17 +30,34 @@ public class SistemaInventario {
                     + "8. Salir"));
 
             if (opcion == 1) {
-                
+
                 Comida C = new Comida(JOptionPane.showInputDialog(" Ingrese el Nombre de la Comida: \n"),
                         Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Precio de la Comida: \n")),
                         JOptionPane.showInputDialog("Estado de la Comida: \n" + "\n(Vencido / No Vencido)"));
+                inventario.add(C);
             }
             if (opcion == 2) {
-                
+
                 Bebidas B = new Bebidas(JOptionPane.showInputDialog(" Ingrese el Nombre de la Bebida: \n"),
                         Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Precio de la Bebida: \n")),
                         Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Tamaño de la Bebida: \n")));
+                inventario.add(B);
+            }
+            if (opcion == 4) {
+                for (int i = 0; i < inventario.size(); i++) {
+                    JOptionPane.showInputDialog("" + inventario.indexOf(inventario.get(i)) + "-" + inventario.get(i));
+                }
+                int pos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la posicion a eliminar"));
+                if (pos >= 0 && pos < inventario.size()) {
+                    int confirmacion = JOptionPane.showConfirmDialog(null, "Esta seguro de eliminarlo?");
+                    if (confirmacion == 0) {
+                        inventario.remove(pos);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "No existe ningun producto en inventario!!!");
+                }
+            }
+
         }
-      }
     }
 }
