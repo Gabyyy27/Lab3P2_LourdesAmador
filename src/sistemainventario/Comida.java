@@ -46,7 +46,7 @@ public class Comida {
 
     @Override
     public String toString() {
-        return "C O M I D A S: \n" + "\n Nombre= " + NombreComida +
+        return " C O M I D A S: \n" + "\n Nombre= " + NombreComida +
                 "\n Precio= " + PrecioComida +" lps"+ "\n Estado de Vencimiento= " + EstadoVencimiento;
     }
     
