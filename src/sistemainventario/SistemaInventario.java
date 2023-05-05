@@ -90,14 +90,14 @@ public class SistemaInventario {
             }
             //Generar Compra
             if (opcion == 6) {
-                for (int i = 0; i < inventario.size(); i++) {
+               for (int i = 0; i < inventario.size(); i++) {
                     JOptionPane.showMessageDialog(null, " " + inventario.indexOf(inventario.get(i)) + "-" + inventario.get(i));
                 }
-                int posi = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la posicion del producto que desea comprar"));
-                if (posi >= 0 && posi < inventario.size()) {
-                    int confirmacion = JOptionPane.showConfirmDialog(null, "Esta seguro de comprarlo?");
+                int producto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la posicion del producto que desea comprar"));
+                if (producto >= 0 && producto < inventario.size()) {
+                    int confirmacion = JOptionPane.showConfirmDialog(null, "¿Esta seguro de realizar esta compra?");
                     if (confirmacion == 0) {
-                        compras.add(posi);
+                        compras.add(inventario.get(producto));
                     }
                 }
                 
